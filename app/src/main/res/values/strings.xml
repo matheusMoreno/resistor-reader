@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Resistor Reader</string>
+    <string name="submit_text">Choose an image (with a resistor!) from your camera roll for the app to read.</string>
+    <string name="button_submit">Upload image...</string>
+    <string name="button_camera">Take picture</string>
+    <string name="instruction">Take a well aligned picture of the resistor. It will be assigned with a E12 standard value (10%).</string>
+</resources>
