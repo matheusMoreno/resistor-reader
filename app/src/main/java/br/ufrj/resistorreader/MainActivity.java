@@ -177,8 +177,8 @@ public class MainActivity extends AppCompatActivity {
     /** Chama o modulo em Python para tratar a imagem. */
     private String testPython(String filename) {
         Python py = Python.getInstance();
-        PyObject mod = py.getModule("test");
+        PyObject mod = py.getModule("reader");
 
-        return mod.callAttr("f", filename).toString();
+        return mod.callAttr("read_resistor", filename).toString();
     }
 }
