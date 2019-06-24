@@ -4,6 +4,6 @@
     <string name="submit_text">Escolha uma imagem (com um resistor!) do seu rolo de câmera para o aplicativo ler.</string>
     <string name="button_submit">Escolher imagem</string>
     <string name="button_camera">Tirar foto</string>
-    <string name="instruction">Tire uma foto bem alinhada do resistor e corte para que apenas seu corpo fique no frame. Ele será reconhecido como um dos valores da Série E12 (10%).</string>
+    <string name="instruction">Tire uma foto bem alinhada do resistor e a recorte para que apenas seu corpo fique no frame. Ele será reconhecido como um dos valores da Série E12 (10%).</string>
     <string name="img_desc">imagem de um resistor</string>
 </resources>
