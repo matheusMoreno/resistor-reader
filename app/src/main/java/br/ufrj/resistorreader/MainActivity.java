@@ -2,7 +2,7 @@ package br.ufrj.resistorreader;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+//import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+//import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chaquo.python.PyObject;
@@ -70,16 +70,16 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(message);
 
             /* Para debug (ver a foto cortada direitinho). */
-            File imgFile = new  File(croppedPhotoPath);
+            /*File imgFile = new  File(croppedPhotoPath);
 
             if(imgFile.exists()){
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                 ImageView myImage = findViewById(R.id.imageviewTest);
                 myImage.setImageBitmap(myBitmap);
-            }
+            }*/
 
             /* Ver o tempo que demora pra chamar o Python... */
-            textView.setText(testPython(croppedPhotoPath));
+            textView.setText("Valor lido: " + testPython(croppedPhotoPath));
         }
     }
 

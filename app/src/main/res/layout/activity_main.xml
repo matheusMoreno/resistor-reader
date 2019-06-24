@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
     <Button
@@ -18,35 +19,36 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="314dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="315dp"
+        android:layout_height="89dp"
         android:text="@string/instruction"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/resistor" />
 
     <TextView
         android:id="@+id/textSucess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonTakePicture" />
 
     <ImageView
-        android:id="@+id/imageviewTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/resistor"
+        android:layout_width="117dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/img_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textSucess"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/resistor" />
 
 </android.support.constraint.ConstraintLayout>
