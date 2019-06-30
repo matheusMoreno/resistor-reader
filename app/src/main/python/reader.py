@@ -136,7 +136,7 @@ def find_contours(crops, h, length):
    # Thresholds definidos para os testes secundarios
    black_limit  = np.full((2*h, length), 25)
    brown_limit  = np.full((2*h, length), 30)
-   red_limit    = np.full((2*h, length), 60)
+   red_limit    = np.full((2*h, length), 70)
    orange_limit = np.full((2*h, length), 30)
    green_limit  = np.full((2*h, length), 15)
    blue_limit   = np.full((2*h, length), 15)
@@ -168,11 +168,12 @@ def find_contours(crops, h, length):
          elif k == 2:
             red_mask = np.logical_or(res[:,:,0].astype(int) + red_limit > res[:,:,2].astype(int),
                                      res[:,:,1].astype(int) + red_limit > res[:,:,2].astype(int))
+            red_mask = np.logical_or(red_mask, np.abs(res[:,:,1].astype(int) - res[:,:,0]) > 30)
             res[np.nonzero(red_mask)] = [0, 0, 0]
 
          elif k == 3:
-            orange_mask = np.logical_or(res[:,:,0].astype(int) + orange_limit > res[:,:,1].astype(int),
-                                        res[:,:,0].astype(int) + orange_limit + 20 > res[:,:,2].astype(int))
+            orange_mask = np.logical_and(res[:,:,0].astype(int) + orange_limit > res[:,:,1].astype(int),
+                                         np.abs(res[:,:,0].astype(int) - res[:,:,1]) > 30)
             res[np.nonzero(orange_mask)] = [0, 0, 0]
 
          elif k == 5:
@@ -186,14 +187,14 @@ def find_contours(crops, h, length):
             res[np.nonzero(blue_mask)] = [0, 0, 0]
 
          elif k == 7:
-            purple_mask = np.logical_or(res[:,:,1].astype(float) + 15 > res[:,:,2],
-                                        res[:,:,1].astype(float) + 35 > res[:,:,0])
+            purple_mask = np.logical_and(res[:,:,1].astype(float) + 15 > res[:,:,2],
+                                         res[:,:,1].astype(float) + 35 > res[:,:,0])
             res[np.nonzero(purple_mask)] = [0, 0, 0]
 
          elif k == 8:
-            gray_mask = np.logical_or(abs((res[:,:,0].astype(float) / 2) - (res[:,:,1].astype(float) / 2)) > \
+            gray_mask = np.logical_or(np.abs((res[:,:,0].astype(float) / 2) - (res[:,:,1].astype(float) / 2)) > \
                                       gray_limit,
-                                      (abs(res[:,:,0].astype(float) / 2) - (res[:,:,2].astype(float) / 2)) > \
+                                     (np.abs(res[:,:,0].astype(float) / 2) - (res[:,:,2].astype(float) / 2)) > \
                                       gray_limit + 15)
             res[np.nonzero(gray_mask)] = [0, 0, 0]
 
